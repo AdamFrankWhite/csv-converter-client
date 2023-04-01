@@ -1,0 +1,11 @@
+.sidebarCont {
+    min-height: 100vh;
+    background: rgb(0, 39, 65);
+    color: white;
+    padding: 2em;
+}
+
+.list {
+    list-style-type: none;
+    padding: 0;
+}
