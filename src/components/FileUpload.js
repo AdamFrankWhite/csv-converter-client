@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Editor from "./Editor";
 export default function FileUpload() {
+    const [csvData, setCsvData] = useState(null);
+
     const handleFileUpload = (e) => {
         let file = e.target.files[0];
         // Create an object of formData
@@ -29,6 +32,7 @@ export default function FileUpload() {
             })
             .then((res) => {
                 console.log(res);
+                setCsvData(res.data);
             });
     };
     return (
@@ -38,6 +42,9 @@ export default function FileUpload() {
                 type="file"
                 accept=".csv"
             />
+
+            {/* Table - data needs to be send to redux store, to let other component access */}
+            <Editor data={csvData} />
         </div>
     );
 }
